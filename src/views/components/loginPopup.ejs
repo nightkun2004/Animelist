@@ -1,0 +1,17 @@
+<div id="loginPopup" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+    <div class="bg-white p-6 rounded shadow-lg w-96">
+        <h2 class="text-xl font-bold mb-4">เข้าสู่ระบบ</h2>
+        <form id="loginForm">
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700">ชื่อผู้ใช้</label>
+                <input type="text" id="email" class="w-full p-2 border rounded" placeholder="ชื่อผู้ใช้หรืออีเมล" required>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700">รหัสผ่าน</label>
+                <input type="password" id="password" class="w-full p-2 border rounded" placeholder="รหัสผ่าน" required>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">เข้าสู่ระบบ</button>
+        </form>
+        <button id="closePopup" class="mt-4 text-red-500">ปิด</button>
+    </div>
+</div>

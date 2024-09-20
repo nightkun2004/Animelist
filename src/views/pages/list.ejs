@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= animeData.title %> อนิเมะใหม่ พร้อมช่องทางการฉายแบบถูกลิขสิทธิ์</title>
+    <meta property="og:type" content="website" />
+     <meta property="og:url" content="https://anime-list.ani-night.online" />
+     <meta property="og:title" content="<%= animeData.title %>" />
+     <meta property="og:description"
+         content="<%= animeData.synopsis %>" />
+
+         <% if (animeData.poster.startsWith('http')) { %>
+            <meta property="og:image" content="<%= animeData.poster %>">
+        <% } else { %>
+            <meta property="og:image" content="https://ani-night.online/uploads/posters/<%= animeData.poster %>">
+        <% } %>
+   
+    <meta property="og:image:width" content="630">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:site_name" content="ani-night.online">
+    <link rel="stylesheet" href="/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    <style>
+        /* Skeleton loader styles */
+        .skeleton {
+            background-color: #e2e8f0;
+            border-radius: 0.5rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #anime-info p {
+            white-space: pre-line;
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../components/Header') %>
+    <div class="layout_body">
+        <div class="container mx-auto p-4"  id="anime-container"  data-urlslug="<%= animeData.urlslug %>">
+            <!-- bg anime banner -->
+            <div id="anime-banner" class="h-60 bg-gray-100 rounded-lg skeleton"></div>
+
+            <!-- anime poster -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                <div id="anime-poster" class="md:col-span-1 skeleton w-[320px] h-[400px] md:h-[500px]"></div>
+            
+                <div id="anime-info" class="md:col-span-2 m-10">
+                    <h1 class="text-3xl font-bold mb-4 skeleton w-2/3"></h1>
+                    <p class="text-lg skeleton w-full"></p>
+
+                     <!-- Additional anime details -->
+                 <div id="anime-details" class="mt-8 skeleton w-full"></div>
+                </div>
+                
+            </div>
+            
+            <hr class="mt-6">
+
+            <!-- list แพลตฟอร์มสตีมมื่ง -->
+            <div id="streaming-platforms" class="mt-10">
+                <h2 class="text-2xl font-bold mb-4 skeleton w-1/3 h-6"></h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="skeleton h-20 w-full"></div>
+                    <div class="skeleton h-20 w-full"></div>
+                    <div class="skeleton h-20 w-full"></div>
+                    <div class="skeleton h-20 w-full"></div>
+                </div>
+            </div>
+            <%- include('../components/AdSense') %>
+        </div>
+    </div>
+    <%- include('../components/loginPopup') %>
+
+    <script src="/js/header.js"></script>
+    <script src="/js/list.js" defer></script>
+</body>
+</html>

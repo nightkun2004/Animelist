@@ -1,0 +1,43 @@
+<header style="position: sticky; top: 0;" class="bg-white shadow-md z-10">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="text-2xl font-bold">
+        <a href="/" class="text-blue-600">Animelist</a>
+        <!-- 250px x 60px จะเป็นขนาดที่เหมาะสมสำหรับเดสก์ท็อป -->
+         <!-- 120 - 150 พิกเซลเพื่อให้เหมาะสมกับขนาด Navbar บนมือถือ -->
+      </div>
+
+      <!-- Menu (Hidden on small screens) -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="/" class="hover:text-blue-600 <%= active === 'Home' ? 'text-blue-600' : 'text-gray-700' %>">หน้าแรก</a>
+        <a href="/list/anime" class="hover:text-blue-600 <%= active === 'Animelist' ? 'text-blue-600' : 'text-gray-700' %>">อนิเมะ</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">ค้นหา</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">ประจำซีซัน</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">ติดต่อเรา</a>
+      </nav>
+
+      <!-- Login Button -->
+      <div class="hidden md:block">
+        <a href="#" class="loginButton text-blue-600 hover:text-blue-700 border border-blue-600 px-4 py-2 rounded-full">เข้าสู่ระบบ</a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <a href="#" class="block text-gray-700 hover:bg-gray-100 px-4 py-2">หน้าแรก</a>
+      <a href="#" class="block text-gray-700 hover:bg-gray-100 px-4 py-2">อนิเมะ</a>
+      <a href="#" class="block text-gray-700 hover:bg-gray-100 px-4 py-2">ค้นหา</a>
+      <a href="#" class="block text-gray-700 hover:bg-gray-100 px-4 py-2">ประจำซีซัน</a>
+      <a href="#" class="block text-gray-700 hover:bg-gray-100 px-4 py-2">ติดต่อเรา</a>
+      <a href="#" class="loginButton block text-blue-600 hover:bg-gray-100 px-4 py-2">เข้าสู่ระบบ</a>
+    </div>
+  </header>

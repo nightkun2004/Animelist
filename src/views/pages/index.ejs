@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อนิเมะใหม่ พร้อมช่องทางการฉายแบบถูกลิขสิทธิ์</title>
+    <link rel="stylesheet" href="/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+    <%- include('../components/Header') %>
+    <div class="layout_body">
+        <div class="container mx-auto p-4">
+            <h1 class="text-2xl font-bold mb-4">รายการอนิเมะ</h1>
+            <%- include('../components/AdSense') %>
+            <div id="animeGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Dynamic content from API will be loaded here -->
+            </div>
+            <div id="loading" class="text-center mt-4 hidden">
+                <p>กำลังดึงข้อมูล...</p>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('../components/loginPopup') %>
+    <p id="notification" class="notification fixed bg-gray-100 text-center text-black py-4 px-6 rounded-lg shadow-lg hidden max-w-sm left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">...</p>
+    <script>
+        const apiBaseUrl = '<%= apiBaseUrl %>';
+        console.log("Api", apiBaseUrl)
+      </script>
+    <script src="/js/header.js"></script>
+    <script src="/js/index.js" defer></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
